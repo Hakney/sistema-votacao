@@ -80,6 +80,33 @@ SELECT * FROM votos;
 
 ---
 
+## 🎯 Objetivo
+
+O principal objetivo é praticar:
+
+- Criação e uso de **filas**, **exchanges** e **bindings** com RabbitMQ  
+- Processamento assíncrono de mensagens  
+- Persistência em banco de dados com PostgreSQL  
+- Integração com Spring Boot
+
+---
+
+## 🔄 Funcionamento do Sistema
+
+1. O usuário envia um voto via API (`/api/voto`).
+2. O voto é publicado na exchange `computar.vot.ex`.
+3. A exchange redireciona o voto para a fila `computar.voto.queue`
+4. Um **consumer** escuta a fila e processa o voto.
+5. O voto é armazenado no banco de dados PostgreSQL.
+
+---
+
+## 🧩 Componentes do RabbitMQ
+
+- **Exchange**: `computar.voto.ex` (tipo: direct)  
+- **Queue**: `computar.voto.queue`
+
+---
 ## 📚 Aprendizados
 
 Durante o desenvolvimento deste projeto, foram explorados os seguintes conceitos:
