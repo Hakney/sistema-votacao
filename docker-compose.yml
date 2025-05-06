@@ -19,11 +19,29 @@ services:
     container_name: rabbitmq-votacao
     restart: always
     ports:
-      - "5672:5672"   # Porta para conexões de aplicativos (ex: Spring)
-      - "15672:15672" # Porta para acessar o painel de gerenciamento
+      - "5672:5672"
+      - "15672:15672"
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app-votacao
+    depends_on:
+      - postgres
+      - rabbitmq
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/votacao
+      SPRING_DATASOURCE_USERNAME: votacao
+      SPRING_DATASOURCE_PASSWORD: votacao
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+    ports:
+      - "8080:8080"
 
 volumes:
   pgdata:
