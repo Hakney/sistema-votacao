@@ -33,18 +33,13 @@ O sistema simula uma votação onde os votos são enviados para uma fila e, post
 
 ## 🚀 Como Executar o Projeto
 
-### 1. Subir os containers do RabbitMQ e PostgreSQL
+### 1. Subir os containers do App, RabbitMQ e PostgreSQL
 
 Certifique-se de ter o Docker instalado. Depois, no terminal, execute:
 
 ```bash
 docker-compose up -d
 ```
-
-### 2. Rodar a aplicação Spring Boot
-
-Execute o projeto spring boot na IDE de sua preferência.
-
 ---
 
 ## 🧪 Possibilidades de Testes
