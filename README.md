@@ -89,9 +89,9 @@ O principal objetivo é praticar:
 ## 🔄 Funcionamento do Sistema
 
 1. O usuário envia um voto via API (`/api/voto`).
-2. O voto é publicado na exchange `computar.vot.ex`.
+2. O voto é publicado na exchange `computar.voto.ex`.
 3. A exchange redireciona o voto para a fila `computar.voto.queue`
-4. Criar um binding no menu Queues and Streams: computar.voto.ex.
+4. Criar um binding no menu Queues and Streams: `computar.voto.ex`.
 5. Um **consumer** escuta a fila e processa o voto.
 O voto é armazenado no banco de dados PostgreSQL.
 
