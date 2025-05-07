@@ -1,0 +1,26 @@
+Instalar minikube para testar
+Instalar kompose 
+"minikube start --driver=docker" -> Iniciar cluster
+"minikube addons enable dashboard" -> Habilita dashboard
+"minikube dashboard" -> Abre dashboard
+"kompose convert" -> Converte o docker-compose nos arquivos para enviar pro kubernetes
+
+Adicionar imagePullPolicy: Never Ex.:
+
+    spec:
+      containers:
+      - name: app
+        image: votacao-app
+        imagePullPolicy: Never  # Não tentar puxar a imagem de um repositório
+
+kubectl apply -f votacao-app-deployment.yaml
+
+"minikube ssh" -> entra no ssh do minikube
+"docker images" -> verifica as imagens dentro do minikube
+"minikube image load nome-da-imagem"-> carrega a imagem diretamente no Minikube.
+"kubectl apply -f ." -> envia os arquivos para o minikube
+"kubectl get pods" -> ver pods
+"kubectl get svc" -> ver serviços
+"kubectl patch service nome-do-svc -p '{"spec": {"type": "LoadBalancer"}}'" -> Troca o serviço de ClusterIP para LoadBalancer 
+"minikube tunnel" -> Cria um IP acessível da minha maquina. (provavelmente localhost: http://localhost:15672/ )
+

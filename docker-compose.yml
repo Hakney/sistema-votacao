@@ -25,11 +25,9 @@ services:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
 
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: app-votacao
+  votacao-app:
+    image: votacao-app
+    container_name: votacao-app
     depends_on:
       - postgres
       - rabbitmq
