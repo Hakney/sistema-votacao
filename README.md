@@ -91,8 +91,7 @@ O principal objetivo é praticar:
 1. O usuário envia um voto via API (`/api/voto`).
 2. O voto é publicado na exchange `computar.voto.ex`.
 3. A exchange redireciona o voto para a fila `computar.voto.queue`
-4. Criar um binding no menu Queues and Streams: `computar.voto.ex`.
-5. Um **consumer** escuta a fila e processa o voto.
+4. Um **consumer** escuta a fila e processa o voto.
 O voto é armazenado no banco de dados PostgreSQL.
 
 ---
@@ -102,6 +101,8 @@ O voto é armazenado no banco de dados PostgreSQL.
 - **Exchange**: `computar.voto.ex` (tipo: direct)  
 - **Queue**: `computar.voto.queue`
 
+1. Criar um binding no menu Queues and Streams.
+- **Binding**: `computar.voto.ex`
 ---
 ## 📚 Aprendizados
 
